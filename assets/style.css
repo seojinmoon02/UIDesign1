@@ -7,6 +7,7 @@
 /* adjusting fonts */
 
 body {
+	color: purple;
 	font-family: -apple-system, BlinkMacSystemFont, helvetica, arial, sans-serif;
 	transition: background 500ms ease;
 }
@@ -19,12 +20,14 @@ p, li {
 /* adjusting spacing */
 
 #left-column {
-	padding: 20px;
+	padding: 50px;
 }
 
-h1, p {
+h1, p, ul {
 	margin-bottom:  20px;
+	text-align: center;
 }
+
 
 ul, ol {
 	margin-left: 20px;
