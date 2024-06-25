@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Selector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <span class="logo">NOWWW!</span>
+        </div>
+        <div class="button-container">
+            <div class="circle-image" onclick="selectWorkout('5min')">5MIN</div>
+            <div class="circle-image" onclick="selectWorkout('10min')">10MIN</div>
+            <div class="circle-image" onclick="selectWorkout('30min')">30MIN</div>
+            <div class="circle-image" onclick="selectWorkout('1hour')">1HOUR</div>
+        </div>
+    </div>
+    <script src="workout.js"></script>
+    <script>
+        function togglePlay() {
+            var button = document.querySelector('.bgm-button');
+            button.classList.toggle('playing');
+        }
+
+        function selectWorkout(time) {
+            window.location.href = `workout s.html?time=${time}`;
+        }
+    </script>
+</body>
+</html>

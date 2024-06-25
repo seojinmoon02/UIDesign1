@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Suggestion</title>
+    <link rel="stylesheet" href="workout s.css">
+</head>
+<body>
+    <div class="container">
+        <div class="suggestion">
+            <h1 id="workout"></h1>
+            <button class="start-button" onclick="startWorkout()">Start Workout</button>
+        </div>
+    </div>
+    <script>
+        const workouts = {
+            '5min': ['Plank', 'Jumping Jacks', 'Running in place', 'Jump Rope'],
+            '10min': ['Burpees', 'High Knees', 'Mountain Climbers', 'Push-ups'],
+            '30min': ['Running', 'Cycling', 'Swimming', 'Yoga'],
+            '1hour': ['Hiking', 'Dance', 'Boxing', 'CrossFit']
+        };
+
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substring(1).split('&').forEach(param => {
+                const [key, value] = param.split('=');
+                params[key] = value;
+            });
+            return params;
+        }
+
+        function suggestWorkout() {
+            const params = getQueryParams();
+            const time = params.time;
+            const workoutList = workouts[time];
+            const workout = workoutList[Math.floor(Math.random() * workoutList.length)];
+            document.getElementById('workout').innerText = workout;
+        }
+
+        function startWorkout() {
+            const params = getQueryParams();
+            const time = params.time;
+            const workout = document.getElementById('workout').innerText;
+            window.location.href = `workout.html?time=${time}&workout=${encodeURIComponent(workout)}`; // URL 파라미터로 시간 및 운동 이름 전달
+        }
+
+        suggestWorkout();
+    </script>
+</body>
+</html>

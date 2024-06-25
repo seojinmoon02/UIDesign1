@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Movement-DirectBlack', sans-serif;
+}
+
+@font-face {
+  font-family: "Movement";
+  src: url("Movement-DirectBlack.woff2");
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    color: black;
+}
+
+.logo {
+    height: 40px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.progress-circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring__circle {
+    transition: 0.35s stroke-dashoffset;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: white;
+    stroke-width: 60;
+}
+
+.timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+.workout-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 42px;
+}
+
+.bpm-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.bpm-display {
+    font-size: 36px;
+    margin-right: 20px;
+    display: flex;
+    align-items: baseline;
+}
+
+#bpm-number {
+    font-size: 48px;
+    margin-right: 5px;
+}
+
+#bpm-text {
+    font-size: 24px;
+}
+
+.bpm-slider {
+    flex-grow: 1;
+    margin: 0 15px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+}
+
+.bpm-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 1px;
+}
+
+.bpm-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: -5px;
+}
+
+.bpm-slider::-moz-range-track {
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 1px;
+}
+
+.bpm-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.bpm-slider:focus {
+    outline: none;
+}
+
+.bpm-slider:focus::-webkit-slider-runnable-track {
+    background: white;
+}
+
+.bpm-slider:focus::-moz-range-track {
+    background: white;
+}
+
+.metronome-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.icon {
+    width: 20px;  /* 아이콘 크기 조정 */
+    height: 20px;  /* 아이콘 크기 조정 */
+}
+
+.metronome-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.metronome-button:hover {
+    transform: translateY(-2px);
+}

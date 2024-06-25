@@ -22,6 +22,22 @@ $(document).ready(function() {
         $(this).css('background', 'yellow');
     })
 
+
+
+function updateClock() {
+  var currentTime = new Date();
+  var hours = currentTime.getHours();
+  var minutes = currentTime.getMinutes();
+  var seconds = currentTime.getSeconds();
+  var formattedTime = currentTime.toLocaleString();
+
+  // Add leading zero to minutes and seconds if needed
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+
+  var message = hours + ":" + minutes + ":" + seconds;
+  document.getElementById("clock").innerText = message;
+}
     /* random background color from an array */
 
     // let colors = ['blue', 'red', 'green', 'purple', 'yellow']

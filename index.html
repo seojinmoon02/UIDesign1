@@ -1,38 +1,95 @@
-  
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>[Seojin Moon] | UI Design Programming 1</title>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seojin Moon's Portfolio</title>
+    <link rel="stylesheet" href="style_sm.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-  <!-- this is where my code is-->
-  <div id="grid">
-    <div id="left-column" class="scroll">  
-
-      <!-- my favorite pokemon -->
-      <!-- <img src="https://archives.bulbagarden.net/media/upload/thumb/5/53/054Psyduck.png/140px-054Psyduck.png" alt="Psyduck" /> -->
-
-      <!-- about me-->
-      <h1>SEOJIN MOON</h1>  
-      <p class="desc">Hi welcome to my planet:)</p>
-      <ul>
-        <li>My favorite food is </li>
-        <li>My favorite song is "Steal the show"</li>
-        <li>My favorite website is <a href="">Craigslist</a></li>
-        <li>
-        <h3>Exercises</h3>
-      <ul>
-        <li><a href="ascii/exterior-SeojinMoon.html">ASCII Town</a></li>
-        <li><a href="codingfromlife/index.html">CSS Still Life</a></li>
-      </ul>
-      </ul>
-
-    </div>
-  </div>
+    <header>
+        <h1>Seojin Moon</h1>
+        <p>Hi welcome! I'm Seojin Moon:) please take a look!</p>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+    </header>
+    <main>
+        <section class="works">
+            <h2>Project & Workshop</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="image1.jpg" alt="P1 Personal Utility Image">
+                    <h3>P1 Personal Utility</h3>
+                    <p>A brief description of P1 Personal Utility.</p>
+                    <a href="p1_personal_utility.html" class="button">View Work</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="image2.jpg" alt="P2 Public Utility Image">
+                    <h3>P2 Public Utility</h3>
+                    <p>A brief description of P2 Public Utility.</p>
+                    <a href="https://github.com/your-repo2" class="button">View Work</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="image3.jpg" alt="Workshop with 최건혁 Image">
+                    <h3>Workshop with 최건혁</h3>
+                    <p>A brief description of the workshop.</p>
+                    <a href="https://docs.google.com/document/d/your-doc-id" class="button">View Document</a>
+                </div>
+            </div>
+        </section>
+        <section class="works">
+            <h2>Exercise</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="image4.jpg" alt="ASCII Town Image">
+                    <h3>ASCII Town</h3>
+                    <p>A brief description of ASCII Town.</p>
+                    <a href="https://github.com/your-repo3" class="button">View Work</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="image5.jpg" alt="CSS Still Life Image">
+                    <h3>CSS Still Life</h3>
+                    <p>A brief description of CSS Still Life.</p>
+                    <a href="https://github.com/your-repo4" class="button">View Work</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="image6.jpg" alt="User Research Interview Image">
+                    <h3>User Research Interview</h3>
+                    <p>A brief description of User Research Interview.</p>
+                    <a href="https://github.com/your-repo5" class="button">View Work</a>
+                </div>
+            </div>
+        </section>
+        <section class="works">
+            <h2>Extra Credit</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="image7.jpg" alt="Clock Image">
+                    <h3>Clock</h3>
+                    <p>A brief description of Clock.</p>
+                    <a href="https://github.com/your-repo6" class="button">View Work</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="image8.jpg" alt="Diary Image">
+                    <h3>Diary</h3>
+                    <p>A brief description of Diary.</p>
+                    <a href="https://github.com/your-repo7" class="button">View Work</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="image9.jpg" alt="Dark mode(Toggle) Image">
+                    <h3>Dark mode(Toggle)</h3>
+                    <p>A brief description of Dark mode(Toggle).</p>
+                    <a href="https://github.com/your-repo8" class="button">View Work</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="image10.jpg" alt="HTML Wire Image">
+                    <h3>HTML Wire</h3>
+                    <p>A brief description of HTML Wire.</p>
+                    <a href="https://github.com/your-repo9" class="button">View Work</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script_sm.js"></script>
 </body>
 </html>

@@ -6,6 +6,16 @@
 
 /* adjusting fonts */
 
+@font-face {
+  font-family: "HyperScrypt_web";
+  src: url("HyperScrypt-Stencil_web.ttf");
+}
+
+@font-face {
+  font-family: "font-name";
+  src: url("the-path-to-your-font");
+}
+
 body {
 	color: purple;
 	font-family: -apple-system, BlinkMacSystemFont, helvetica, arial, sans-serif;
@@ -24,6 +34,7 @@ p, li {
 }
 
 h1, p, ul {
+	font-family: "HyperScrypt_web";
 	margin-bottom:  20px;
 	text-align: center;
 }
@@ -36,6 +47,23 @@ ul, ol {
 img {
 	max-width: 100%;
 	height:  auto;
+}
+
+
+@media only screen and (max-device-width: 812px) { 
+    body {
+    background: pink;
+}
+
+@media only screen and (max-width: 812px) { 
+    body {
+        background: beige;
+    }
+    
+@media print {
+    body {
+        background: beige;
+    }
 }
 
 /* uncomment the code below to set the grid */
