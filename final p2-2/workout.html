@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Timer</title>
+    <link rel="stylesheet" href="workout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <script src="common.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="top-bar">
+        <img src="logo.png" alt="Logo" class="logo" onclick="goToIndex()">
+    </div>
+    <div class="content">
+        <div class="timer-container">
+            <div class="progress-circle">
+                  <svg class="fixed-ring" width="310" height="310">
+                     <circle class="fixed-ring__circle" stroke="white" stroke-width="10" fill="transparent" r="150" cx="155" cy="155"/>
+                 </svg>
+                 <svg class="progress-ring" width="310" height="310">
+                      <circle class="progress-ring__circle" stroke="green" stroke-width="10" fill="transparent" r="150" cx="155" cy="155"/>
+                  </svg>
+             <div class="timer" id="timer">00:00</div>
+            </div>
+
+
+        </div>
+        <div class="workout-info">
+            <h1 id="workout-name">RANDOM WORKOUT</h1>
+           <div class="bpm-section">
+                <div class="bpm-display">
+                  <span id="bpm-text">BPM</span>
+                 </div>
+                   <div class="bpm-buttons">
+                     <button class="bpm-button" onclick="setBPM(40)">40</button>
+                      <button class="bpm-button" onclick="setBPM(70)">70</button>
+                     <button class="bpm-button" onclick="setBPM(100)">100</button>
+                     <button class="bpm-button" onclick="setBPM(150)">150</button>
+                 </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    let metronomeInterval;
+
+    function getTimerValue() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const time = urlParams.get('time');
+        const workout = urlParams.get('workout');
+
+        if (workout) {
+            document.getElementById('workout-name').textContent = decodeURIComponent(workout);
+        }
+
+        console.log(`Timer value requested for: ${time}`);
+
+        switch (time) {
+            case '5min': return 5 * 60;
+            case '10min': return 10 * 60;
+            case '30min': return 30 * 60;
+            case '1hour': return 60 * 60;
+            default: return 0;
+        }
+    }
+
+    function startTimer() {
+        const timer = document.getElementById('timer');
+        const progressCircle = document.querySelector('.progress-ring__circle');
+        const radius = progressCircle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+        progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+        progressCircle.style.strokeDashoffset = circumference;
+
+        let time = getTimerValue();
+        let totalTime = time;
+
+        if (time === 0) {
+            console.error('Invalid timer value. Timer cannot start.');
+            timer.textContent = 'Invalid Time';
+            return;
+        }
+
+        function setProgress(percent) {
+            const offset = circumference - percent / 100 * circumference;
+            progressCircle.style.strokeDashoffset = offset;
+        }
+
+        let interval = setInterval(() => {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            timer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            setProgress((totalTime - time) / totalTime * 100);
+            time--;
+            if (time < 0) {
+                clearInterval(interval);
+                timer.textContent = 'Time Up!';
+                setProgress(100);
+                window.location.href = 'congratulations.html'; // Redirect to congratulations page
+            }
+        }, 1000);
+    }
+
+    function toggleMetronome() {
+        const metronomeButton = document.getElementById('metronome-icon');
+        if (metronomeButton.src.includes('play-icon.png')) {
+            metronomeInterval = startMetronome();
+            metronomeButton.src = 'stop-icon.png';
+        } else {
+            stopMetronome();
+            metronomeButton.src = 'play-icon.png';
+        }
+    }
+
+    function startMetronome() {
+        const bpm = document.getElementById('bpm-slider').value;
+        const interval = 60 / bpm * 1000;
+        let tick = true;
+
+        metronomeInterval = setInterval(() => {
+            document.getElementById('bpm-number').style.color = tick ? 'green' : '#FFBD25';
+            tick = !tick;
+        }, interval / 2);
+
+        return metronomeInterval;
+    }
+
+    function stopMetronome() {
+        clearInterval(metronomeInterval);
+        document.getElementById('bpm-number').style.color = '#FFBD25';
+    }
+
+    function updateBPM() {
+        const bpm = document.getElementById('bpm-slider').value;
+        document.getElementById('bpm-number').textContent = bpm;
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            window.location.href = 'congratulations.html'; // Redirect to congratulations page
+        }
+    }
+
+    window.onload = () => {
+        startTimer();
+        document.addEventListener('keydown', handleKeyPress);
+    };
+</script>
+<script src="pawprints.js"></script>
+</body>
+</html>

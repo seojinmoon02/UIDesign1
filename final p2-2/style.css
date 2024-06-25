@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Racing Sans One, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: none;
+    color: black;
+    position: fixed; /* 고정 위치 */
+    top: 0; /* 상단에 고정 */
+    left: 0; /* 왼쪽에 고정 */
+    z-index: 1000; /* 다른 요소들 위에 표시 */
+}
+
+.logo {
+    height: 40px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px; /* top bar가 다른 콘텐츠를 가리지 않도록 마진 추가 */
+
+}
+
+.box {
+    background: none;
+    position: absolute;
+    top: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: -30px;
+}
+
+.circle-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.circle-image:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+.paw-print {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('paw-print.png') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    opacity: 0.8;
+    transform: translate(-50%, -50%);
+    animation: fade-out 2s forwards;
+}
+
+.paw-print.left {
+    /* Additional styles for left paw prints if needed */
+}
+
+.paw-print.right {
+    /* Additional styles for right paw prints if needed */
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+/* 기존 스타일 */
+
+.welcome-message {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.envelope {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.envelope-back {
+    width: 100%;
+    height: 100%;
+    background: lightgray;
+    position: absolute;
+    backface-visibility: hidden;
+    border: 0px solid #ccc;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.envelope-flap {
+    width: 100%;
+    height: 60%;
+    background: lightgray;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: top;
+    transform: rotateX(0deg);
+    transition: transform 0.5s ease;
+    z-index: 1;
+    backface-visibility: hidden;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(-180deg);
+}
+
+.letter {
+    width: 80%;
+    height: 55%;
+    background: #fff;
+    position: absolute;
+    top: 17%;
+    left: 10%;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50px);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.envelope.open .letter {
+    transform: translateY(0);
+}
+
+.letter p {
+    margin-bottom: 20px;
+}
+
+.letter button {
+    padding: 10px 20px;
+    background: #000000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Add this to your existing CSS file */
+
+.stamp {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px; /* Adjust based on your preference */
+    right: 10px; /* Adjust based on your preference */
+    z-index: 2; /* Ensure it is above other elements */
+    transform: rotate(-20deg); /* Optional: Add a slight rotation for effect */
+}

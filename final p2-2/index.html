@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Racing Sans One&display=swap" rel="stylesheet">
+    <script src="common.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+             <img src="logo.png" alt="Logo" class="logo" onclick="goToIndex()">
+        </div>
+        <div class="welcome-message">
+            <div class="envelope" onclick="openEnvelope()">
+                <div class="envelope-back"></div>
+                <div class="envelope-flap"></div>
+                <img src="stamp.png" alt="Stamp" class="stamp">
+                <div class="letter">
+                    <p>Welcome! Are you ready?</p>
+                    <button onclick="closeWelcomeMessage()">Close</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+                    <p>HOW LONG DO YOU HAVE?</p>
+                     </div>
+        <div class="button-container">
+            <div class="circle-image" onclick="selectWorkout('5min')">5MIN</div>
+            <div class="circle-image" onclick="selectWorkout('10min')">10MIN</div>
+            <div class="circle-image" onclick="selectWorkout('30min')">30MIN</div>
+            <div class="circle-image" onclick="selectWorkout('1hour')">1HOUR</div>
+        </div>
+    </div>
+    <script src="workout.js"></script>
+    <script src="pawprints.js"></script>
+    <script>
+        function togglePlay() {
+            var button = document.querySelector('.bgm-button');
+            button.classList.toggle('playing');
+        }
+
+        function selectWorkout(time) {
+            window.location.href = `workout s.html?time=${time}`;
+        }
+
+        function closeWelcomeMessage() {
+            document.querySelector('.welcome-message').style.display = 'none';
+        }
+
+        function openEnvelope() {
+            document.querySelector('.envelope').classList.add('open');
+        }
+
+        window.onload = function() {
+            document.querySelector('.welcome-message').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

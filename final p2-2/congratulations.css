@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Racing Sans One', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-color: #000000;
+    letter-spacing: 2px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: -100px;
+    font-size: 30px;
+    color: white;
+    z-index: 10; /* Ensure the container is above confetti */
+    position: relative; /* Ensure z-index works */
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white; /* Set background to white */
+    color: black; /* Set text color to black for contrast */
+    position: fixed; /* Fixed position */
+    top: 0; /* Fixed to top */
+    left: 0; /* Fixed to left */
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.logo {
+    height: 40px;
+}
+
+.confetti {
+    position: fixed;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    opacity: 0.7;
+    border-radius: 50%;
+    animation: confetti-fall linear infinite;
+    z-index: 1; /* Ensure confetti stays below the text */
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.paw-print {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('paw-print-white.png') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    opacity: 0.8;
+    transform: translate(-50%, -50%);
+    animation: fade-out 2s forwards;
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Racing Sans One', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-color: #000000;
+    letter-spacing: 2px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: -100px;
+    font-size: 30px;
+    color: white;
+    z-index: 10; /* Ensure the container is above confetti */
+    position: relative; /* Ensure z-index works */
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white; /* Set background to white */
+    color: black; /* Set text color to black for contrast */
+    position: fixed; /* Fixed position */
+    top: 0; /* Fixed to top */
+    left: 0; /* Fixed to left */
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.logo {
+    height: 40px;
+}
+
+.confetti {
+    position: fixed;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    opacity: 0.7;
+    border-radius: 50%;
+    animation: confetti-fall linear infinite;
+    z-index: 1; /* Ensure confetti stays below the text */
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.paw-print {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('paw-print-white.png') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    opacity: 0.8;
+    transform: translate(-50%, -50%);
+    animation: fade-out 2s forwards;
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+/* Add these styles to your existing CSS */
+
+.stamp {
+    position: absolute;
+    bottom: -300%;
+    right: 30%;
+    width: 200px;
+    height: 200px;
+    background: url('stamp.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0;
+    transform: scale(0);
+    animation: stamp-animation 1s ease-in-out forwards;
+    z-index: 20; /* Ensure the stamp is above other elements */
+}
+
+@keyframes stamp-animation {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
