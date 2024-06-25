@@ -6,6 +6,12 @@
     <title>Seojin Moon's Portfolio</title>
     <link rel="stylesheet" href="style_sm.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Portfolio of Seojin Moon showcasing projects, workshops, exercises, and extra credit works.">
+    <meta property="og:title" content="Seojin Moon's Portfolio">
+    <meta property="og:description" content="Explore the projects, workshops, exercises, and extra credit works by Seojin Moon.">
+    <meta property="og:image" content="path/to/social-media-image.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
     <header>
@@ -18,21 +24,21 @@
             <h2>Project & Workshop</h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="image1.jpg" alt="P1 Personal Utility Image">
+                    <img src="image1.jpg" alt="Screenshot of P1 Personal Utility project">
                     <h3>P1 Personal Utility</h3>
                     <p>What's in your fridge?</p>
                     <a href="p1_personal_utility.html" class="button">View Work</a>
                 </div>
                 <div class="gallery-item">
-                    <img src="image2.jpg" alt="P2 Public Utility Image">
+                    <img src="image2.jpg" alt="Screenshot of P2 Public Utility project">
                     <h3>P2 Public Utility</h3>
                     <p>nowwww!</p>
                     <a href="p2_public_utility.html" class="button">View Work</a>
                 </div>
                 <div class="gallery-item">
-                    <img src="image3.jpg" alt="Workshop with 최건혁 Image">
+                    <img src="image3.jpg" alt="Image of Workshop with 최건혁">
                     <h3>Workshop with 최건혁</h3>
-                    <p>Ai image making</p>
+                    <p>AI image making</p>
                     <a href="workshop.html" class="button">View Work</a>
                 </div>
             </div>
@@ -41,22 +47,22 @@
             <h2>Exercise</h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="image4.jpg" alt="ASCII Town Image">
+                    <img src="image4.jpg" alt="Screenshot of ASCII Town project">
                     <h3>ASCII Town</h3>
-                    <p>welcome to my house!</p>
+                    <p>Welcome to my house!</p>
                     <a href="ascii/exterior-SeojinMoon.html" class="button">View Work</a>
                 </div>
                 <div class="gallery-item">
-                    <img src="image5.jpg" alt="CSS Still Life Image">
+                    <img src="image5.jpg" alt="Screenshot of CSS Still Life project">
                     <h3>CSS Still Life</h3>
                     <p>Kirby, book, rose, cake!</p>
                     <a href="codingfromlife/index.html" class="button">View Work</a>
                 </div>
                 <div class="gallery-item">
-                    <img src="image6.jpg" alt="User Research Interview Image">
+                    <img src="image6.jpg" alt="Image of User Research Interview project">
                     <h3>User Research Interview</h3>
                     <p>Interviews of my two friends</p>
-                    <a href="https://docs.google.com/document/d/1ndQAJep4PNjTFIpbyaXHsJDQOsEoHHjfvLFbCyq48X4/edit?pli=1" class="button">View Work</a>
+                    <a href="https://docs.google.com/document/d/1ndQAJep4PNjTFIpbyaXHsJDQOsEoHHjfvLFbCyq48X4/edit?pli=1" target="_blank" class="button">View Work</a>
                 </div>
             </div>
         </section>
@@ -64,28 +70,36 @@
             <h2>Extra Credit</h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="image7.jpg" alt="Clock Image">
+                    <img src="image7.jpg" alt="Screenshot of Clock project">
                     <h3>Clock</h3>
                     <a href="clock.html" class="button">View Work</a>
                 </div>
                 <div class="gallery-item">
-                    <img src="image8.jpg" alt="Diary Image">
+                    <img src="image8.jpg" alt="Screenshot of Diary project">
                     <h3>Diary</h3>
                     <a href="diary.html" class="button">View Work</a>
                 </div>
                 <div class="gallery-item">
-                    <img src="image9.jpg" alt="Dark mode(Toggle) Image">
+                    <img src="image9.jpg" alt="Screenshot of Dark mode(Toggle) project">
                     <h3>Dark mode(Toggle)</h3>
-                    <a href="https://github.com/your-repo8" class="button">View Work</a>
+                    <a href="https://github.com/your-repo8" target="_blank" class="button">View Work</a>
                 </div>
                 <div class="gallery-item">
-                    <img src="image10.jpg" alt="HTML Wire Image">
+                    <img src="image10.jpg" alt="Screenshot of HTML Wire project">
                     <h3>HTML Wire</h3>
                     <a href="wireframe.html" class="button">View Work</a>
+                    <a id="openVideoPopup" class="button">Watch Video</a>
                 </div>
-            </div>
-        </section>
     </main>
+    <div id="videoPopup" class="video-popup">
+        <div class="video-popup-content">
+            <span id="closeVideoPopup" class="close">&times;</span>
+            <video controls>
+                <source src="videowf.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
     <script src="script_sm.js"></script>
 </body>
 </html>
