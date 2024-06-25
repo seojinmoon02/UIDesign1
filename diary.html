@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: white;
+            color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        #diary-entry {
+            font-size: 1.5rem;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #submit {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submit:hover {
+            background-color: gray;
+        }
+
+        #entries {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .entry {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a.button:hover {
+            background-color: gray;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Diary</h1>
+        <a href="index.html" class="button">Back to Portfolio</a>
+    </header>
+    <div>
+        <p>Today was...</p>
+        <input type="text" id="diary-entry" placeholder="Enter one word to describe your day">
+        <button id="submit">Submit</button>
+    </div>
+    <div id="entries"></div>
+
+    <script>
+        function updateEntries() {
+            const entriesDiv = document.getElementById('entries');
+            const entries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
+            entriesDiv.innerHTML = '';
+            entries.forEach(entry => {
+                const entryDiv = document.createElement('div');
+                entryDiv.className = 'entry';
+                entryDiv.textContent = entry;
+                entriesDiv.appendChild(entryDiv);
+            });
+        }
+
+        document.getElementById('submit').addEventListener('click', () => {
+            const entry = document.getElementById('diary-entry').value.trim();
+            if (entry) {
+                const entries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
+                entries.push(entry);
+                localStorage.setItem('diaryEntries', JSON.stringify(entries));
+                document.getElementById('diary-entry').value = '';
+                updateEntries();
+            }
+        });
+
+        window.onload = updateEntries;
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: white;
+            color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #clock {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        header {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a.button:hover {
+            background-color: gray;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Clock</h1>
+        <a href="index.html" class="button">Back to Portfolio</a>
+    </header>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            // Add leading zero to minutes and seconds if needed
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            var message = hours + ":" + minutes + ":" + seconds;
+            document.getElementById("clock").innerText = message;
+        }
+
+        window.onload = function() {
+            updateClock(); // Initial call to display the time immediately
+            setInterval(updateClock, 1000); // Update the clock every second
+        }
+    </script>
+</body>
+</html>
